@@ -24,6 +24,6 @@ jobs:
           git init
           git add .
           git commit -m "Add changes" -a
-          git remote add origin https://${{secret.TOKEN}}@github.com/huoxue1/tutor_web.git
+          git remote add origin https://${{secrets.TOKEN}}@github.com/huoxue1/tutor_web.git
           git checkout -b page
           git push origin page
