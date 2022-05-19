@@ -37,3 +37,8 @@
     transform: rotate(360deg);
   }
 }
+
+.nut-icon-home{
+  width: 40px;
+  height: 40px;
+}
