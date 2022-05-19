@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import logo from './logo.svg';
 import {  Tabbar, TabbarItem } from "@nutui/nutui-react";
 import './App.css';
 import '@nutui/nutui-react/dist/style.css'
