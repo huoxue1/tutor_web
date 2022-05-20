@@ -2,42 +2,61 @@ import React, {Component} from 'react';
 import {AppOutline, UserOutline,} from 'antd-mobile-icons'
 import {Badge, TabBar} from 'antd-mobile'
 import './App.css';
-import '@nutui/nutui-react/dist/style.css'
-import {HashRouter, Route, Switch} from 'react-router-dom'
+import {HashRouter, Route, Router, Switch} from 'react-router-dom'
 import Home from "./compent/home";
 import User from "./compent/user";
 import {createHashHistory} from 'history';
+import api from "./utils/api";
+
 
 
 class App extends Component<any, any> {
     private readonly history: any;
+    private isLogin:boolean = false;
 
 
     constructor(props: any) {
         super(props);
         this.history = createHashHistory({});
-        this.history.replace("/home")
+    }
+
+    componentDidMount() {
+        api.checkLogin().then((result) =>{
+            if (result){
+                this.history.replce("/index/home")
+            }else {
+                this.history.replace("/login")
+            }
+        })
     }
 
     render() {
 
         return <>
             <HashRouter>
+                <Route path={"/index"}>
                     <Switch>
-                      <Route path={"/home"} component={Home}/>
-                      <Route path={"/user"} component={User}/>
+                      <Route path={"/index/home"} exact>
+                        <Home history={this.history}/>
+                      </Route>
+                      <Route path={"/index/user"} exact>
+                        <User history={this.history}/>
+                      </Route>
                     </Switch>
+                <TabBars history={this.history}/>
+                </Route>
+                <Route path={"/login"}>
 
+                </Route>
+                <Route path={"/register"}>
 
-
-
-                <Routers history={this.history}/>
+                </Route>
             </HashRouter>
         </>
     }
 }
 
-class Routers extends Component<any, any> {
+class TabBars extends Component<any, any> {
 
 
 
@@ -60,7 +79,7 @@ class Routers extends Component<any, any> {
 
     onChange = (key: string) => {
         console.log(this.props)
-        this.props.history.replace("/" + key)
+        this.props.history.replace("/index/" + key)
     }
 
     render() {

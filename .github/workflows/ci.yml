@@ -13,8 +13,16 @@ jobs:
           node-version: '14'
           cache: 'npm'
       - name: Build binary file
+        continue-on-error: true
         run: |
           npm install && npm run build
+      - name: commit to gitee
+        continue-on-error: true
+        run: |
+          git config --global user.email "3343780376@qq.com"
+          git config --global user.name "huoxue1"
+          git remote add origin https://${{secrets.GITEE_TOKEN}}@gitee.com/balisong7000/tutoring_front.git
+          git push -f origin Main
       - name: Commit to page
         continue-on-error: true
         run: |
