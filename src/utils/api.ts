@@ -1,9 +1,9 @@
-import Http from "./request";
+// import Http from "./request";
 
-let http = new Http({
-    baseURL: "/",
-    timeout: 30000
-});
+// let http = new Http({
+//     baseURL: "/",
+//     timeout: 30000
+// });
 
 let base = process.env.REACT_APP_BASE_URL
 

@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {AppOutline, UserOutline,} from 'antd-mobile-icons'
 import {Badge, TabBar} from 'antd-mobile'
 import './App.css';
-import {HashRouter, Route, Router, Switch} from 'react-router-dom'
+import {HashRouter, Route, Switch} from 'react-router-dom'
 import Home from "./compent/home";
 import User from "./compent/user";
 import {createHashHistory} from 'history';

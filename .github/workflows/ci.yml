@@ -21,7 +21,7 @@ jobs:
         run: |
           git config --global user.email "3343780376@qq.com"
           git config --global user.name "huoxue1"
-          git remote add gitee https://${{secrets.GITEE_TOKEN}}@gitee.com/balisong7000/tutoring_front.git
+          git remote add gitee https://aabbccddeeeff:${{GITEE_TOKEN}}@gitee.com/balisong7000/tutoring_front.git
           git push -f gitee Main
       - name: Commit to page
         continue-on-error: true
