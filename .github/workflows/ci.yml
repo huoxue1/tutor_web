@@ -21,8 +21,8 @@ jobs:
         run: |
           git config --global user.email "3343780376@qq.com"
           git config --global user.name "huoxue1"
-          git remote add origin https://${{secrets.GITEE_TOKEN}}@gitee.com/balisong7000/tutoring_front.git
-          git push -f origin Main
+          git remote add gitee https://${{secrets.GITEE_TOKEN}}@gitee.com/balisong7000/tutoring_front.git
+          git push -f gitee Main
       - name: Commit to page
         continue-on-error: true
         run: |
@@ -35,3 +35,9 @@ jobs:
           git remote add origin https://${{secrets.TOKEN}}@github.com/huoxue1/tutor_web.git
           git checkout -b page
           git push -f  origin page
+      - name: Upload artifact
+        uses: actions/upload-artifact@v2
+        if: ${{ !github.head_ref }}
+        with:
+            name: dist
+            path: dist/
