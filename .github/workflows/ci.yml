@@ -19,7 +19,7 @@ jobs:
       - name: sync-gitee-mirror
         uses: abersheeran/sync-gitee-mirror@v1-beta
         with:
-          repository: abersheeran/sync-gitee-mirror
+          repository: balisong7000/tutoring_frontr
           username: aabbccddeeeff
           password: ${{ secrets.GITEE_TOKEN }}
       - name: Commit to page
