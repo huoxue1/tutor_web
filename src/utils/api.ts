@@ -5,7 +5,7 @@
 //     timeout: 30000
 // });
 
-let base = process.env.REACT_APP_BASE_URL
+// let base = process.env.REACT_APP_BASE_URL
 
 class API {
     checkLogin = async ():Promise<boolean>=>{
