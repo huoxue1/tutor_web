@@ -7,6 +7,8 @@ import Home from "./compent/home";
 import User from "./compent/user";
 import {createHashHistory} from 'history';
 import api from "./utils/api";
+import Login from "./compent/login";
+import Register from "./compent/register";
 
 
 
@@ -23,7 +25,7 @@ class App extends Component<any, any> {
     componentDidMount() {
         api.checkLogin().then((result) =>{
             if (result){
-                this.history.replce("/index/home")
+                this.history.replace("/index/home")
             }else {
                 this.history.replace("/login")
             }
@@ -46,10 +48,10 @@ class App extends Component<any, any> {
                 <TabBars history={this.history}/>
                 </Route>
                 <Route path={"/login"}>
-
+                    <Login history={this.history} />
                 </Route>
                 <Route path={"/register"}>
-
+                    <Register history={this.history}/>
                 </Route>
             </HashRouter>
         </>

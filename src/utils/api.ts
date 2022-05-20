@@ -9,7 +9,7 @@
 
 class API {
     checkLogin = async ():Promise<boolean>=>{
-        return true
+        return false
     }
 }
 
