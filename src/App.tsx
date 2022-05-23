@@ -23,6 +23,7 @@ class App extends Component<any, any> {
     }
 
     componentDidMount() {
+
         api.checkLogin().then((result) =>{
             if (result){
                 this.history.replace("/index/home")
@@ -52,6 +53,9 @@ class App extends Component<any, any> {
                 </Route>
                 <Route path={"/register"}>
                     <Register history={this.history}/>
+                </Route>
+                <Route path={"/"} exact={true}>
+                    <TabBars history={this.history}/>
                 </Route>
             </HashRouter>
         </>
